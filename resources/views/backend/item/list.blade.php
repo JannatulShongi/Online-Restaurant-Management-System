@@ -14,6 +14,7 @@
                         <th scope="col"> food_category</th>
                         <th scope="col"> price</th>
                         <th scope="col"> details</th>
+                        <th scope="col"> image</th>
 
                         <th class="text text-center"scope="col">Action</th>
                     </tr>
@@ -27,7 +28,8 @@
                         <td>{{$data->category->name}}</td>
                         <td>{{$data->price}}</td>
                         <td>{{$data->details}}</td>
-
+                        <td>{{$data->image}}   </td>
+                        
 
 
 

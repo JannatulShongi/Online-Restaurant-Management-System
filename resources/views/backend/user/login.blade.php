@@ -121,7 +121,7 @@
         transform: scale(0.95);
     }
 
-    input[type=email],[type=password] {
+    input[type=email],[type=password],[type=role] {
         background-color: #f6f6f6;
         border: none;
         color: #0d0d0d;
@@ -142,12 +142,16 @@
         border-radius: 5px 5px 5px 5px;
     }
 
-    input[type=email],[type=password]:focus {
+    input[type=email],[type=password],[type=role]:focus {
         background-color: #fff;
         border-bottom: 2px solid #5fbae9;
     }
 
-    input[type=email],[type=password]:placeholder {
+
+
+
+
+    input[type=email],[type=password],[type=role]:placeholder {
         color: #cccccc;
     }
 
@@ -294,10 +298,11 @@
         </div>
 
         <!-- Login Form -->
-        <form action="{{route('login.do')}}" method="POST" role="form">
+        <form action="{{route('login.do')}}" method="POST" role="form"enctype="multipart/form-data">
             @csrf
             <input required type="email" id="login" class="fadeIn second" name="email" placeholder="Enter Email">
             <input required type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password">
+            {{-- <input required type="role" id="role" class="fadeIn third" name="role" placeholder="Enter role"> --}}
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 

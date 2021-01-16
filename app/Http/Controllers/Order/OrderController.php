@@ -35,7 +35,6 @@ class OrderController extends Controller
     public function view($id){
 
         $order = Order::with('details')->find($id);
-        $oder=Order::with('user')->get();
 
         return view ('backend.order.view',compact('order'));
       }
@@ -48,15 +47,16 @@ class OrderController extends Controller
     }
 
     public function update(Request $request,$id){
+       // dd($request->all());
+        // $request->validate([
+        //     'first_name'=>'required',
+        //     'last_name'=>'required',
+        //     'mobile'=>'required',
+        //     'email'=>'required',
+        //     'address'=>'required',
 
-        $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'mobile'=>'required',
-            'email'=>'required',
-            
-            'address'=>'required',
-         ]);
+        //     'comment'=>'required',
+        //  ]);
 
 
         $order = Order::find($id);
@@ -68,8 +68,31 @@ class OrderController extends Controller
         $order->email= $request->email;
         $order->address= $request->address;
         $order->status = $request->status;
+        $order->comment = $request->comment;
         $order->save();
         return redirect()->back()->with('message','Product Update sucessfully');
 
      }
+     public function invoice($id){
+        $order=Order::find($id);
+
+         return view ('backend.order.invoice',compact('order'));
+
+
+    //      $cart=session('cart');
+
+    //      foreach($cart as $data)
+    //      {
+
+    //          OrderDetails::create([
+
+    //                 'order_id'=>$data['id'],
+    //                  'item_id'=>$data['id'],
+    //                  'quantity'=>$data['quantity'],
+    //                  'price'=>$data['price'],
+    //                  'sub_total'=>$data['sub_total']
+    //          ]);
+
+    //  }
+    }
 }

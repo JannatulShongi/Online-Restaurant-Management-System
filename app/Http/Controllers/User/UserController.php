@@ -17,6 +17,7 @@ class UserController extends Controller
     public function loginProcess(Request $request)
     {
 
+        
         $request->validate([
            'email'=>'required',
            'password'=>'required'
@@ -27,6 +28,7 @@ class UserController extends Controller
 //        dd(Auth::attempt($login_info));
 
         if (Auth::attempt($login_info)) {
+
             $request->session()->regenerate();
             return redirect()->intended('admin');
         }else

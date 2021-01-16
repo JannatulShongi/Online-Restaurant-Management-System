@@ -67,7 +67,7 @@
     <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseFour"
     aria-expanded="true" aria-controls="collapseFour">
     <i class="fas fa-fw fa-cog"></i>
-    <span>Employee</span>
+    <span>User</span>
 </a>
 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
@@ -83,40 +83,22 @@
 
 <li class="nav-item">
 
-    <a class="nav-link collapsed" href="{{ route('backend.order.list') }}" data-toggle="collapse" data-target="#collapseSix"
-    aria-expanded="true" aria-controls="collapseSix">
-    <i class="fas fa-fw fa-cog"></i>
-    <span>Order</span>
-</a>
-<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
+    <a class="nav-link collapsed" href="{{ route('backend.order.list') }}">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Order</span>
+    </a>
 
-
-
-        <a class="collapse-item" href="{{ route('backend.order.list') }}">List</a>
-
-</div>
-</div>
 
 </li>
 
 
 <li class="nav-item">
 
-    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapse10"
-    aria-expanded="true" aria-controls="collapse10">
+    <a class="nav-link collapsed" href="{{ route('backend.registration.list') }}">
     <i class="fas fa-fw fa-cog"></i>
     <span>Registration</span>
 </a>
-<div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
 
-
-
-            <a class="collapse-item" href="{{ route('backend.registration.list') }}">List</a>
-
-    </div>
-</div>
 
 </li>
 
@@ -140,41 +122,24 @@
 </li>
 <li class="nav-item">
 
-    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseNine"
-    aria-expanded="true" aria-controls="collapseNine">
+    <a class="nav-link collapsed" href="{{ route('backend.report.list') }}" >
     <i class="fas fa-fw fa-cog"></i>
-    <span>Buisness Setting</span>
+    <span>Report</span>
 </a>
-<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
 
-
-            <a class="dropdown-item" href="">Create</a>
-            <a class="collapse-item" href="">List</a>
-
-    </div>
-</div>
 
 </li>
-
 <li class="nav-item">
 
-    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapse2"
-    aria-expanded="true" aria-controls="collapse2">
+    <a class="nav-link collapsed" href="{{ route('backend.support.list') }}" >
     <i class="fas fa-fw fa-cog"></i>
-    <span>Coupon</span>
+    <span>Support</span>
 </a>
-<div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
 
-
-            <a class="dropdown-item" href="">Create</a>
-            <a class="collapse-item" href="">List</a>
-
-    </div>
-</div>
 
 </li>
+
+
 
 
 
@@ -192,12 +157,7 @@
 
     </div>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('logout') }}">
-      <i class="fas fa-fw fa-chart-area"></i>
-      <span>Logout</span>
-    </a>
-  </li>
+
   <hr class="sidebar-divider">
 
   </ul>

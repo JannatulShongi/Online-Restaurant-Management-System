@@ -1,4 +1,4 @@
-shongi
+
 @extends ('master')
 @section('content')
 @if(session('message'))
@@ -40,4 +40,4 @@ shongi
 
     </div>
   @endsection
-  
+

@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gusto</title>
+<title>rms</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -81,6 +81,8 @@
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input required name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
+
+
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input required name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
@@ -97,7 +99,7 @@
 
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                        <form action="{{route('user.registration')}}" method="post">
+                        <form action="{{route('user.registration')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Name *</label>
@@ -115,6 +117,15 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mobile Numbers *</label>
                                 <input  name="mobile" required type="number" class="form-control" id="exampleInputPassword1" placeholder="Mobile number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Address</label>
+                                <input required name="address" type="address" class="form-control" id="exampleInputPassword1" placeholder="address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">image</label>
+                                <input required name="image" type="file" class="form-control" id="exampleInputPassword1" placeholder="image">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Register</button>

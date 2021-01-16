@@ -16,6 +16,7 @@
                         <th scope="col"> User Name</th>
                         <th scope="col"> Total Payable</th>
                         <th scope="col"> Status</th>
+                        <th scope="col"> Comment</th>
 
 
                         <th class="text text-center"scope="col">Action</th>
@@ -32,6 +33,7 @@
                         <td>{{$dat->user->name}}</td>
                         <td>{{$dat->total_payable}}</td>
                         <td>{{$dat->status}}</td>
+                        <td>{{$dat->comment}}</td>
 
 
 
@@ -44,7 +46,7 @@
                             <a class="btn btn-danger" href="">Delete</a>
         {{--                    <a class="btn btn-warning" href="">View</a>--}}
                             <a class="btn btn-success" href="{{ route('backend.order.view',$dat->id) }}">View</a>
-
+                            <a class="btn btn-success" href="{{ route('backend.order.invoice',$dat->id) }}">Invoice</a>
                         </td>
                     </tr>
         @endforeach

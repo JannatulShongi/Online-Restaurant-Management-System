@@ -18,16 +18,12 @@ class UserTableSeeder extends Seeder
             'name'=>'shongi',
             'email'=>'shongi@gmail.com',
             'mobile'=>'016',
+            'address'=>'dhaka',
+            'role'=>'admin',
             'password'=>bcrypt('12345')
 
         ]);
 
-        User::create([
-            'name'=>'foysal',
-            'email'=>'foysal@gmail.com',
 
-            'mobile'=>'016',
-            'password'=>bcrypt('12345')
-        ]);
     }
 }

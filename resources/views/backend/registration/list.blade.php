@@ -7,13 +7,14 @@
                 <table class="table">
 
                     <thead>
-                    
+
                         <tr>
                         <th scope="col">serial</th>
                         <th scope="col"> Name</th>
 
                         <th scope="col"> Mobile</th>
                         <th scope="col"> Email</th>
+                        <th scope="col"> Image</th>
                         <th ></th>
 
 
@@ -36,6 +37,7 @@
                         <td>{{$dat->email}}</td>
 
                         <td>{{$dat->user_id}}</td>
+                        <td>{{$dat->image}}</td>
                         <td></td>
 
 

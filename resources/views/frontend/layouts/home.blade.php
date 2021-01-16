@@ -26,13 +26,15 @@
       <div class="section-title">
         <h2>Our Specials</h2>
       </div>
+      {{-- @dd($list) --}}
 
       @foreach ($list as $key=>$data)
       <div class="row">
         <div class="col-xs-12 col-sm-4">
           <div class="features-item">
             <p class="card-text">{{$data->name}}</p>
-            <img src="{{ url('/frontend/img/specials/1.jpg') }}" class="img-responsive" alt="">
+            <img width="200px;" src="{{ url('uploads/products/'.$data->image) }}" style="    width: 250px;
+            height: 250px">
             <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted">{{$data->price}} BDT</small>
 

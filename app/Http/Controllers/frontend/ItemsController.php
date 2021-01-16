@@ -34,7 +34,7 @@ class ItemsController extends Controller
     public function addTocart($id)
     {
 
-        $item = Items::find($id); 
+        $item = Items::find($id);
             $cartData = session('cart');
 
             // if cart is empty then this the first product
@@ -88,7 +88,8 @@ class ItemsController extends Controller
         $item = Items::find($id);
        $item->name = $request->name;
        $item->price = $request->price;
-       return view ('frontend.cart', compact('item'));
+       $total_cart_item = count($item);
+       return view ('frontend.cart', compact('item','total_cart_item'));
      }
 
 

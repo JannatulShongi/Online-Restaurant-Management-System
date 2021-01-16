@@ -19,6 +19,7 @@
           <li><a href="#restaurant-menu" class="page-scroll">Menu</a></li>
           <li><a href="#team" class="page-scroll">Chef</a></li>
           <li><a href="#contact" class="page-scroll">Contact</a></li>
+          <li><a href="{{ route('frontend.login.profile') }}" class="page-scroll">profile</a></li>
 
           <li class="dropdown">
             <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 18px; margin-top: 3px;" >
@@ -32,14 +33,20 @@
             </ul>
 
         </li>
-        <li><a href="{{ route('frontend.item.cart') }}" class="page-scroll">Cart</a></li>
+        <li>
+
+            <a href="{{ route('frontend.item.cart') }}" class="page-scroll">Cart ({{ session()->get('cart')? count(session()->get('cart')): '0' }})</a></li>
+           
+
+        <li><a href="{{ route('frontend.support.support') }}" class="page-scroll">Support</a></li>
+
         @guest
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Login | Registration
         </button>
         @endguest
         @auth
-            <a class="btn btn-success" href="{{route('user.logout')}}">Logout</a>
+            <a class="btn btn-success" href="{{route('user.logout')}}">{{ auth()->user()->name }}|Logout</a>
         @endauth
 
 

@@ -12,7 +12,7 @@
 <div class="row justify-content-center">
     <div class="col-md-10">
         <h1>Item Form</h1>
-        <form  action="{{ route('backend.store') }}" method="post">
+        <form  action="{{ route('backend.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="name">Item Name</label>
@@ -34,6 +34,10 @@
             <div class="form-group">
                 <label for="details">Details</label>
                 <input name="details"type="text" class="form-control" id="details" >
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input name="image" type="file" class="form-control" id="image" >
             </div>
 
 

@@ -20,6 +20,8 @@ use App\Http\Controllers\frontend\UsersController;
 use App\Http\Controllers\frontend\OrdersController;
 use App\Models\OrderDetails;
 use App\Http\Controllers\Registration\RegistrationController;
+use App\Http\Controllers\Report\ReportController;
+use App\Http\Controllers\Support\SupportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +42,9 @@ Route::get('/login',[UserController::class,'login'])->name('login');
 Route::post('/login',[UserController::class,'loginProcess'])->name('login.do');
 
 
-Route::group(['middleware'=>'auth'],function (){
-    Route::get('/admin', function () {
-        return view('master');
-    });
-    Route::get('/backend/dashboard/dashboard',[DashboardController::class,'dashboard'])->name('backend.dashboard.dashboard');
+Route::group(['middleware'=>['auth','admin']],function (){
+
+Route::get('/admin',[DashboardController::class,'dashboard'])->name('backend.dashboard.dashboard');
 //category
 
 Route::get('/backend/category/create',[CategoryController::class,'create'])->name('backend.category.create');
@@ -89,12 +89,18 @@ Route::get('/backend/order/list',[OrderController::class,'list'])->name('backend
 Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
 Route::get('/backend/order/view/{id}',[OrderController::class,'view'])->name('backend.order.view');
 Route::get('/backend/order/edit/{id}',[OrderController::class,'edit'])->name('backend.order.edit');
-Route::post('/backend/updatr/{id}',[OrderController::class,'update'])->name('backend.update');
+Route::post('/backend/update/{id}',[OrderController::class,'update'])->name('backend.update');
+Route::get('/backend/order/invoive/{id}',[OrderController::class,'invoice'])->name('backend.order.invoice');
+
 
 //order_details
 Route::get('/backend/order_details/create',[OrderDetailsController::class,'create'])->name('backend.order_details.create');
 
 
+//report
+
+Route::get('/backend/report/list',[ReportController::class,'list'])->name('backend.report.list');
+Route::post('/backend/report/report',[ReportController::class,'report'])->name('report');
 //Delivary Man
 Route::get('/backend/delivery/create',[DeliveryManController::class,'create'])->name('backend.delivery.create');
 Route::get('/backend/delivery/list',[DeliveryManController::class,'list'])->name('backend.delivery.list');
@@ -102,19 +108,16 @@ Route::post('/delivery/store/',[DeliveryManController::class,'store'])->name('de
 
 //registration
 Route::get('/backend/registration/list',[UsersController::class,'list'])->name('backend.registration.list');
-
-
-Route::get('/logout',[UserController::class,'logout'])->name('logout');
-
-    Route::group(['prefix'=>'product'],function (){
-
-    });
-});
-
+//support
+Route::get('/backend/support/list',[SupportController::class,'list'])->name('backend.support.list');
+Route::get('backend/suport/reply/{id}',[SupportController::class,'reply'])->name('backend.support.reply');
+Route::post('/backend/support/send',[SupportController::class,'send'])->name('backend.support.send');
 //Delivary Man
 Route::get('/backend/delivery/create',[DeliveryManController::class,'create'])->name('backend.delivery.create');
 
+Route::get('/logout',[UserController::class,'logout'])->name('logout');
 
+});
 
 
 //frontend
@@ -137,12 +140,23 @@ Route::get('/addtocart/clear/',[ItemsController::class,'clear'])->name('cart.cle
 Route::post('/registration',[UsersController::class,'registration'])->name('user.registration');
 Route::post('/user/login',[UsersController::class,'login'])->name('user.login');
 Route::get('/user/logout',[UsersController::class,'logout'])->name('user.logout');
+Route::get('/frontend/profile',[UsersController::class,'profile'])->name('frontend.login.profile');
+//Route::get('user/view/porfile/{id}',[UsersController::class,'userProfile'])->name('user.view.profile');
+//Route::get('/frontend/show',[UsersController::class,'show'])->name('frontend.show');
+Route::post('/frontend/orders/comment/{id}',[UsersController::class,'comment'])->name('frontend.comment');
 
+Route::get('/frontend/edit/{id}',[UsersController::class,'edit'])->name('frontend.login.edit');
+Route::post('/frontend/update/{id}',[UsersController::class,'update'])->name('frontend.update');
+Route::get('/frontend/password/{id}',[UsersController::class,'password'])->name('frontend.login.password');
+Route::post('/frontend/updated/{id}',[UsersController::class,'updated'])->name('frontend.password');
+//image
+// Route::post('/frontend/upload/image',[UsersController::class,'image'])->name('frontend.upload.image');
 
 //category
 Route::get('frontend/category/view/{id}',[HomesController::class,'allView'])->name('frontend.category.view');
-
-
+//support
+Route::get('/frontend/support',[SupportController::class,'support'])->name('frontend.support.support');
+Route::post('/frontend/support/message',[SupportController::class,'message'])->name('frontend.support.message');
 Route::group(['middleware'=>'auth'],function (){
 //order
 Route::post('/order',[OrdersController::class,'order'])->name('order.place');

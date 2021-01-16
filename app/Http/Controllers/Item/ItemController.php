@@ -25,19 +25,33 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
+
+        // dd($request->all());
          $request->validate([
             'name'=>'required',
             'price'=>'required',
             'details'=>'required',
             'category_id'=>'required',
          ]);
+         $file_name='';
 
+         //        step1- check has file
+                     if($request->hasFile('image'))
+                     {
+                         $image=$request->file('image');
+                        //step2- generate unique name
+                         $file_name=date('Ymdhms').'.'.$image->getClientOriginalExtension();
+                        //step 3- store file with name
+                         $image->storeAs('products',$file_name);
+
+                     }
 
           $products = new Item();
           $products->name = $request->name;
           $products->price = $request->price;
           $products->details = $request->details;
           $products->category_id = $request->category_id;
+          $products->image = $file_name;
 
 
 

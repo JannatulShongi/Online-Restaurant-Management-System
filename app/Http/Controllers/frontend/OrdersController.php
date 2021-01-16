@@ -31,6 +31,7 @@ class OrdersController extends Controller
             $order->mobile=$request->mobile;
             $order->email=$request->email;
             $order->address=$request->address;
+            //$order->comment=$request->comment;
 
             //auth()->user()->id
             $order->user_id=auth()->user()->id;

@@ -21,7 +21,7 @@
                      </tr>
                      </thead>
                      <tbody>
-                        @foreach ($order->Details as $key=>$dat )
+                        @foreach ($order->details as $key=>$dat )
                         <tr>
 
                             <th scope="row">{{$key+1}}</th>

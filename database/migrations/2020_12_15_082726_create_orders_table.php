@@ -22,7 +22,8 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->foreignId('user_id');
             $table->foreignId('total_payable');
-            $table->string('status')->default('');
+            $table->string('comment')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
